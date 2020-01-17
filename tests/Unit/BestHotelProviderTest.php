@@ -35,6 +35,7 @@ class BestHotelProviderTest extends TestCase
 
         $this->assertCount(2, $hotelsCollection);
 
+        $this->assertEquals(BestHotelProvider::PROVIDER_NAME, $hotelsCollection->first()->getProvider());
         $this->assertEquals('Excellent Hotel', $hotelsCollection->first()->getName());
         $this->assertEquals(4.8, $hotelsCollection->first()->getRate());
         $this->assertEquals(399.99, $hotelsCollection->first()->getFare());
@@ -43,6 +44,7 @@ class BestHotelProviderTest extends TestCase
             $hotelsCollection->first()->getAmenities()
         );
 
+        $this->assertEquals(BestHotelProvider::PROVIDER_NAME, $hotelsCollection->last()->getProvider());
         $this->assertEquals('Good Hotel', $hotelsCollection->last()->getName());
         $this->assertEquals(4, $hotelsCollection->last()->getRate());
         $this->assertEquals(349, $hotelsCollection->last()->getFare());
