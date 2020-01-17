@@ -9,7 +9,7 @@ so make sure that you are satisfying the requirements
 listed in the [framework's documentation](https://laravel.com/docs/6.x#server-requirements)
 
 ## Installation
-Run the following commands in order to get a running version of the application:
+Run the following commands in order to get a ready to use version of the application:
 
 1. Clone the repository `git clone  https://github.com/AlShahawi/ourhotels-backend.git`
 2. Get into the directory `cd ourhotels-backend`
