@@ -2,6 +2,8 @@
 
 namespace App\Hotels;
 
+use Exception;
+
 class Hotel
 {
     /**
@@ -28,6 +30,13 @@ class Hotel
      * @var float
      */
     private $rate;
+
+    /**
+     * The discount percentage (from 1 to 100)
+     *
+     * @var int
+     */
+    private $discount;
 
     /**
      * @return string
@@ -119,6 +128,30 @@ class Hotel
     public function setRate(float $rate): Hotel
     {
         $this->rate = $rate;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDiscount(): int
+    {
+        return $this->discount;
+    }
+
+    /**
+     * @param int $discount
+     * @return Hotel
+     * @throws Exception
+     */
+    public function setDiscount(int $discount): Hotel
+    {
+        if ($discount > 100 || $discount < 1) {
+            throw new Exception('The discount must be an integer between 1 and 100');
+        }
+
+        $this->discount = $discount;
 
         return $this;
     }
