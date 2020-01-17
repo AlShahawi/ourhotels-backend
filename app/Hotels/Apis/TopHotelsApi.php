@@ -10,13 +10,25 @@ namespace App\Hotels\Apis;
 class TopHotelsApi
 {
     /**
-     * @var \Illuminate\Support\Collection
+     * Mimic the api http request.
+     *
+     * @param string $from
+     * @param string $to
+     * @param string $city
+     * @param int $adultsCount
+     * @return array
      */
-    private $data;
-
-    public function __construct()
+    public function findHotels(string $from, string $to, string $city, int $adultsCount): array
     {
-        $this->data = collect([
+        return $this->getHotelsData();
+    }
+
+    /**
+     * @return array
+     */
+    private function getHotelsData(): array
+    {
+        return [
             [
                 'hotelName' => 'Excellent Hotel',
                 'rate' => '*****',
@@ -43,20 +55,6 @@ class TopHotelsApi
                 'price' => 149.99,
                 'amenities' => ['Wifi', 'Local travel guides'],
             ],
-        ]);
-    }
-
-    /**
-     * Mimic the api http request.
-     *
-     * @param string $from
-     * @param string $to
-     * @param string $city
-     * @param int $adultsCount
-     * @return array
-     */
-    public function findHotels(string $from, string $to, string $city, int $adultsCount): array
-    {
-        return $this->data->toArray();
+        ];
     }
 }
