@@ -20,6 +20,10 @@ class BestHotelApi
      */
     public function getHotels(string $fromDate, string $toDate, string $city, int $numberOfAdults): array
     {
+        // We're mimicking the process of making an http request.
+        // We're not using any of this function paramaters because
+        // filtering the data will be the responsibility of the real api.
+
         return $this->getHotelsData();
     }
 

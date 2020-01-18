@@ -41,7 +41,9 @@ Now you have a ready to use clone of the application.
 ## How To?
 
 ### Running Automated Tests
-Run the following command:
+> Note: The project is covered by Unit and Feature (API) tests.
+
+Run the following command to run the tests:
 ```bash
 ./vendor/bin/phpunit
 ```
@@ -53,5 +55,10 @@ php artisan serve
 ```
 
 ### Use The API
-> Work in progress ...
+
+You can use the `OurHotels` service that aggregates hotels from multiple providers,
+simply make a get request to the following endpoint:
+```
+http://localhost:8000/api/search?from_date=2020-01-25&to_date=2020-01-31&city=CAI&adults_number=4
+```
 
