@@ -9,7 +9,7 @@ use App\Hotels\Providers\Abstracts\HotelProvider;
 
 class TopHotelsProviderTest extends TestCase
 {
-    public function testItReturnHotelsAndHydrateHotel()
+    public function testItReturnHotelsAndHydrateHotelObjects()
     {
         $this->mock(TopHotelsApi::class, function ($mock) {
             $mock->shouldReceive('findHotels')->once()->andReturn([
