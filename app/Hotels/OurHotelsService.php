@@ -2,8 +2,10 @@
 
 namespace App\Hotels;
 
+use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Container\Container;
+use App\Hotels\Providers\Abstracts\HotelProvider;
 
 class OurHotelsService
 {
@@ -34,6 +36,15 @@ class OurHotelsService
         $providersHotelsResult = collect([]);
 
         foreach ($this->getProviders() as $provider) {
+
+            if (! $provider instanceof HotelProvider) {
+                throw new Exception(sprintf(
+                    'The configured provider %s must implement %s interface.',
+                    get_class($provider),
+                    HotelProvider::class
+                ));
+            }
+
             $providersHotelsResult = $providersHotelsResult->concat(
                 $provider->findMany($fromDate, $toDate, $city, $adultsNumber)
             );
